@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#chooseFile" text="Choose files" />
+        <TableView fx:id="itemsTable" prefHeight="348.0" prefWidth="600.0">
+            <columns>
+                <TableColumn fx:id="fileNameCol" prefWidth="337.0" text="Image">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="fileName" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="progressCol" minWidth="0.0" prefWidth="140.0" text="Progress">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="progress" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="122.0" text="Status">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="status" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+        <Button layoutX="104.0" layoutY="361.0" mnemonicParsing="false" onAction="#chooseDirectory" text="Choose save directory" />
+        <Label fx:id="labelSelectedDirectory" layoutX="247.0" layoutY="365.0" prefHeight="17.0" prefWidth="179.0" text="" />
+      <Button layoutX="436.0" layoutY="361.0" mnemonicParsing="false" onAction="#processFiles" text="Begin" />
+      <ComboBox fx:id="comboBox" layoutX="494.0" layoutY="361.0" prefHeight="25.0" prefWidth="89.0" promptText="Choose">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="1 thread" />
+                <String fx:value="2 threads" />
+                <String fx:value="4 threads" />
+                <String fx:value="8 threads" />
+                <String fx:value="common" />
+            </FXCollections>
+        </items>
+      </ComboBox>
+    </children>
+</Pane>
